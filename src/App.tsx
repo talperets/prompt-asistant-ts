@@ -98,6 +98,7 @@ function App() {
   return (
     <>
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-800 text-white">
+        <h1 className="text-center text-4xl mb-5">Prompt asistant</h1>
         <p
           className={`${
             photoType && "w-64 rounded-xl border bg-slate-700 p-3"

@@ -4,7 +4,8 @@ type photoTypeProps = {
 
 export default function PhotoType({ setPhotoType }: photoTypeProps) {
   return (
-    <div>
+    <div className="flex flex-col">
+      <h1 className="text-center text-2xl">Photo or painting?</h1>
       <button className="small-btn" onClick={() => setPhotoType("A photo of")}>
         Photo
       </button>
