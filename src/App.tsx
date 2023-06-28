@@ -102,12 +102,14 @@ function App() {
         {showPage()}
         <div className="flex flex-row">
           {page ? (
-            <button onClick={() => setPage((prev) => (prev ? prev - 1 : prev))}>
+            <button
+              className="btn"
+              onClick={() => setPage((prev) => (prev ? prev - 1 : prev))}>
               <ArrowBackIosNewIcon /> Prev
             </button>
           ) : null}
 
-          <button onClick={next}>
+          <button onClick={next} className="btn">
             {page === 10 ? (
               "New Prompt"
             ) : (

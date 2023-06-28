@@ -6,8 +6,9 @@ type povProps = {
 export default function PointOfView({ setPointOfView, pointOfView }: povProps) {
   return (
     <div>
-      <h3>Point of view</h3>
+      <h3 className="text-center text-3xl">Point of view</h3>
       <textarea
+        className="textField"
         name=""
         id=""
         value={pointOfView}

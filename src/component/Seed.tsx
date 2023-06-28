@@ -6,8 +6,9 @@ type seedProps = {
 export default function Seed({ seed, setSeed }: seedProps) {
   return (
     <div>
-      <h3>Seed {"(optional)"}</h3>
+      <h3 className="text-center text-2xl">Seed {"(optional)"}</h3>
       <input
+        className="textField"
         type="text"
         value={seed}
         onChange={(e) => setSeed(e.target.value)}

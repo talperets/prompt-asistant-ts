@@ -6,8 +6,9 @@ type envProps = {
 export default function Environment({ environment, setEnvironment }: envProps) {
   return (
     <div>
-      <h3>Environment</h3>
+      <h3 className="text-xl text-center">Environment</h3>
       <textarea
+        className="textField"
         cols={40}
         rows={3}
         value={environment}

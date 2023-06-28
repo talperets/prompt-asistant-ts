@@ -4,13 +4,26 @@ type colorProps = {
 
 export default function ColorScheme({ setColor }: colorProps) {
   return (
-    <div>
-      <h3>Color Scheme</h3>
-      <button onClick={() => setColor("vibrant color scheme")}>Vibrant</button>
-      <button onClick={() => setColor("dark color scheme")}>Dark</button>
-      <button onClick={() => setColor("pastel color scheme")}>Pastel</button>
-      <label htmlFor="">Custom Color</label>
+    <div className="flex flex-col">
+      <h3 className="text-center text-2xl">Color Scheme</h3>
+      <button
+        className="small-btn"
+        onClick={() => setColor("vibrant color scheme")}>
+        Vibrant
+      </button>
+      <button
+        className="small-btn"
+        onClick={() => setColor("dark color scheme")}>
+        Dark
+      </button>
+      <button
+        className="small-btn"
+        onClick={() => setColor("pastel color scheme")}>
+        Pastel
+      </button>
+      <button className="small-btn">Custom Color</button>
       <input
+        className="mb-5 ml-8 rounded-xl text-center"
         type="color"
         onChange={(e) => setColor(`in the color scheme of ${e.target.value}`)}
       />

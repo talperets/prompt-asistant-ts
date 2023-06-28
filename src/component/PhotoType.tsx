@@ -5,8 +5,14 @@ type photoTypeProps = {
 export default function PhotoType({ setPhotoType }: photoTypeProps) {
   return (
     <div>
-      <button onClick={() => setPhotoType("A photo of")}>Photo</button>
-      <button onClick={() => setPhotoType("A painting of")}>Painting</button>
+      <button className="small-btn" onClick={() => setPhotoType("A photo of")}>
+        Photo
+      </button>
+      <button
+        className="small-btn"
+        onClick={() => setPhotoType("A painting of")}>
+        Painting
+      </button>
     </div>
   );
 }

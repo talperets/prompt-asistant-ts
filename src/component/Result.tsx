@@ -7,9 +7,11 @@ export default function Result({ prompt }: ResultProps) {
     `/imagine prompt: ${prompt.join(" ")}`
   );
   return (
-    <div>
-      <h3>Everything is ready</h3>
-      <button onClick={setCopied}>Copy {isCopied && "👍"}</button>
+    <div className="flex flex-col ">
+      <h3 className="text-center text-2xl">Everything is ready</h3>
+      <button className="btn" onClick={setCopied}>
+        Copy {isCopied && "👍"}
+      </button>
     </div>
   );
 }
