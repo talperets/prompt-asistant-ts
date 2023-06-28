@@ -8,8 +8,10 @@ export default function Result({ prompt }: ResultProps) {
   );
   return (
     <div className="flex flex-col ">
-      <h3 className="text-center text-2xl">Everything is ready</h3>
-      <button className="btn" onClick={setCopied}>
+      <h3 className="mb-5 text-center text-2xl">Everything is ready</h3>
+      <button
+        className={`btn ${isCopied && "bg-green-500 hover:bg-green-500"} mb-5`}
+        onClick={setCopied}>
         Copy {isCopied && "👍"}
       </button>
     </div>

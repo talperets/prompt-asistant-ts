@@ -98,7 +98,12 @@ function App() {
   return (
     <>
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-800 text-white">
-        <p>{prompt.join(" ")}</p>
+        <p
+          className={`${
+            photoType && "w-64 rounded-xl border bg-slate-700 p-3"
+          }`}>
+          {prompt.join(" ")}
+        </p>
         {showPage()}
         <div className="flex flex-row">
           {page ? (
