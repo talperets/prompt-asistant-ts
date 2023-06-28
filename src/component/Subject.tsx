@@ -6,9 +6,12 @@ type props = {
 export default function Subject({ setSubject, subject }: props) {
   return (
     <div>
-      <h3 className="text-2xl text-center">The Main subject of your creation</h3>
+      <h3 className="text-center text-2xl">
+        The Main subject of your creation
+      </h3>
       <textarea
-      className="textField"
+        className="textField"
+        placeholder="an owl drinking soda..."
         value={subject}
         name=""
         id=""

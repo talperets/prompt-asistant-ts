@@ -3,11 +3,11 @@ type ligthingProps = {
   setLighting: (str: string) => void;
 };
 
-export default function Lighting({ lighting, setLighting }: ligthingProps) {
+export default function Lighting({ setLighting }: ligthingProps) {
   return (
     <div className="flex flex-col items-center justify-center">
       <h3 className="text-center text-2xl">Lighting</h3>
-      <div className="flex w-56 flex-row flex-wrap">
+      <div className="flex flex-col">
         <button
           className="small-btn focus:bg-green-600"
           onClick={() => setLighting("studio lighting")}>
@@ -33,14 +33,12 @@ export default function Lighting({ lighting, setLighting }: ligthingProps) {
           onClick={() => setLighting("natural daylight")}>
           Daylight
         </button>
+        <button
+          className="small-btn focus:bg-green-600"
+          onClick={() => setLighting("natural nighttime")}>
+          Night
+        </button>
       </div>
-      {/* <input
-        className="textField "
-        value={lighting}
-        type="text"
-        onChange={(e) => setLighting(e.target.value)}
-        placeholder="Other"
-      /> */}
     </div>
   );
 }

@@ -8,6 +8,7 @@ export default function Seed({ seed, setSeed }: seedProps) {
     <div>
       <h3 className="text-center text-2xl">Seed {"(optional)"}</h3>
       <input
+        placeholder="3601192145"
         className="textField"
         type="text"
         value={seed}

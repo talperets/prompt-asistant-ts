@@ -12,8 +12,10 @@ import Seed from "./component/Seed";
 import Result from "./component/Result";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CameraLens from "./component/CameraLens";
 
 function App() {
+  // const [promptHistory, setPromptHistory] = useState([]);
   const [photoType, setPhotoType] = useState("");
   const [environment, setEnvironment] = useState("");
   const [background, setBackground] = useState("");
@@ -24,7 +26,7 @@ function App() {
   const [artStyle, setArtStyle] = useState("");
   const [aspect, setAspect] = useState("");
   const [seed, setSeed] = useState("");
-  // const [cameraLens, setCameraLens] = useState("");
+  const [cameraLens, setCameraLens] = useState("");
   const [page, setPage] = useState(0);
   const prompt: string[] = [
     photoType,
@@ -35,12 +37,13 @@ function App() {
     `${pointOfView}${pointOfView ? "," : ""}`,
     `${background}${background ? " background," : ""}`,
     `${artStyle ? "in the style of " : ""}${artStyle}`,
+    `${cameraLens}${cameraLens ? " camera lens," : ""}`,
     `${aspect ? "--aspect " : ""}${aspect}${seed ? "," : ""}`,
     `${seed ? "--seed " : ""}${seed} ${seed ? "," : ""}`,
   ];
   const next = () => {
     setPage((prev) => {
-      if (prev === 10) {
+      if (prev === 11) {
         setPhotoType("");
         setEnvironment("");
         setSubject("");
@@ -88,10 +91,12 @@ function App() {
       case 7:
         return <ArtStyle artStyle={artStyle} setArtStyle={setArtStyle} />;
       case 8:
-        return <Aspect setAspect={setAspect} />;
+        return <CameraLens setCameraLens={setCameraLens} />;
       case 9:
-        return <Seed seed={seed} setSeed={setSeed} />;
+        return <Aspect setAspect={setAspect} />;
       case 10:
+        return <Seed seed={seed} setSeed={setSeed} />;
+      case 11:
         return <Result prompt={prompt} />;
     }
   };
@@ -115,7 +120,7 @@ function App() {
           ) : null}
 
           <button onClick={next} className="btn">
-            {page === 10 ? (
+            {page === 11 ? (
               "New Prompt"
             ) : (
               <p>
