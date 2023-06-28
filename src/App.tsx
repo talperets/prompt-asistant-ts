@@ -97,15 +97,14 @@ function App() {
   };
   return (
     <>
-      <div className="flex h-screen w-screen flex-col items-center justify-center bg-gray-800 text-white">
-        <h1 className="text-center text-4xl mb-5">Prompt asistant</h1>
-        <p
-          className={`${
-            photoType && "w-64 rounded-xl border bg-slate-700 p-3"
-          }`}>
-          {prompt.join(" ")}
-        </p>
-        {showPage()}
+      <div className="flex h-screen w-screen flex-col items-center justify-around bg-gray-800 text-white">
+        <h1 className="mb-5 text-center text-4xl">Prompt asistant</h1>
+        <div className="flex h-64 w-96 flex-col items-center justify-center">
+          <p className={`${photoType && "w-52 text-center"}`}>
+            {prompt.join(" ")}
+          </p>
+          {showPage()}
+        </div>
         <div className="flex flex-row">
           {page ? (
             <button

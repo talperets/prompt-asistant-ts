@@ -12,7 +12,7 @@ export default function Result({ prompt }: ResultProps) {
       <button
         className={`btn ${isCopied && "bg-green-500 hover:bg-green-500"} mb-5`}
         onClick={setCopied}>
-        Copy {isCopied && "👍"}
+        {isCopied ? "Copied" : "Copy to Midjourney"}
       </button>
     </div>
   );
