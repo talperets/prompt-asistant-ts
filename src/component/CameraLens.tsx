@@ -4,7 +4,7 @@ type CameraLensProps = {
 export default function CameraLens({ setCameraLens }: CameraLensProps) {
   return (
     <div className="flex flex-col items-center justify-center">
-      <h3 className="text-center text-2xl">Camera Lens</h3>
+      <h3 className="text-center text-2xl">{"Camera Lens (optional)"}</h3>
       <div className="flex flex-col">
         <button
           className="small-btn focus:bg-green-600"
@@ -18,7 +18,7 @@ export default function CameraLens({ setCameraLens }: CameraLensProps) {
         </button>
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setCameraLens("Prime Lens")}>
+          onClick={() => setCameraLens("Prime")}>
           Prime Lens
         </button>
         <button
