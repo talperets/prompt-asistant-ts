@@ -1,4 +1,4 @@
-    type ligthingProps = {
+type ligthingProps = {
   lighting: string;
   setLighting: (str: string) => void;
 };
@@ -10,32 +10,38 @@ export default function Lighting({ lighting, setLighting }: ligthingProps) {
       <div className="flex flex-col">
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setLighting("studio lighting")}>
+          onClick={() => setLighting("studio lighting")}
+        >
           Studio
         </button>
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setLighting("ring light")}>
+          onClick={() => setLighting("ring light")}
+        >
           Ring Light
         </button>
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setLighting("soft lighting")}>
+          onClick={() => setLighting("soft lighting")}
+        >
           Soft Light
         </button>
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setLighting("neon lighting")}>
+          onClick={() => setLighting("neon lighting")}
+        >
           Neon
         </button>
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setLighting("natural daylight")}>
+          onClick={() => setLighting("natural daylight")}
+        >
           Daylight
         </button>
         <button
           className="small-btn focus:bg-green-600"
-          onClick={() => setLighting("natural nighttime")}>
+          onClick={() => setLighting("natural nighttime")}
+        >
           Night
         </button>
         <input

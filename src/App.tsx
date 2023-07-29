@@ -1,21 +1,24 @@
-import { useState } from "react";
-import PhotoType from "./component/PhotoType";
-import Subject from "./component/Subject";
-import Lighting from "./component/Lighting";
-import Environment from "./component/Environment";
-import ColorScheme from "./component/ColorScheme";
-import PointOfView from "./component/PointOfView";
-import Background from "./component/Background";
-import ArtStyle from "./component/ArtStyle";
-import Aspect from "./component/Aspect";
-import Seed from "./component/Seed";
-import Result from "./component/Result";
+import { useEffect, useState } from "react";
+import PhotoType from "./components/PhotoType";
+import Subject from "./components/Subject";
+import Lighting from "./components/Lighting";
+import Environment from "./components/Environment";
+import ColorScheme from "./components/ColorScheme";
+import PointOfView from "./components/PointOfView";
+import Background from "./components/Background";
+import ArtStyle from "./components/ArtStyle";
+import Aspect from "./components/Aspect";
+import Seed from "./components/Seed";
+import Result from "./components/Result";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import CameraLens from "./component/CameraLens";
+import CameraLens from "./components/CameraLens";
+import HistoryTable from "./components/HistoryTable";
 
 function App() {
-  // const [promptHistory, setPromptHistory] = useState([]);
+  const [promptHistory, setPromptHistory] = useState<string[]>(
+    JSON.parse(localStorage.getItem("promptHistory")!) || []
+  );
   const [photoType, setPhotoType] = useState("");
   const [environment, setEnvironment] = useState("");
   const [background, setBackground] = useState("");
@@ -44,6 +47,7 @@ function App() {
   const next = () => {
     setPage((prev) => {
       if (prev === 11) {
+        setPromptHistory((prev) => [...prev, prompt.join("")]);
         setPhotoType("");
         setEnvironment("");
         setSubject("");
@@ -100,10 +104,13 @@ function App() {
         return <Result prompt={prompt} />;
     }
   };
+  useEffect(() => {
+    localStorage.setItem("promptHistory", JSON.stringify(promptHistory));
+  }, [promptHistory]);
   return (
     <>
       <div className="flex h-screen w-screen flex-col items-center justify-around bg-gray-800 text-white">
-        <h1 className="mb-5 text-center text-4xl">Prompt asistant</h1>
+        <h1 className="mb-5 text-center text-4xl">Prompt assistant</h1>
         <div className="flex h-64 w-96 flex-col items-center justify-center">
           <p className={`${photoType && "w-52 text-center"}`}>
             {prompt.join(" ")}
@@ -114,7 +121,8 @@ function App() {
           {page ? (
             <button
               className="btn"
-              onClick={() => setPage((prev) => (prev ? prev - 1 : prev))}>
+              onClick={() => setPage((prev) => (prev ? prev - 1 : prev))}
+            >
               <ArrowBackIosNewIcon /> Prev
             </button>
           ) : null}
@@ -129,6 +137,7 @@ function App() {
             )}
           </button>
         </div>
+        <HistoryTable prompt={promptHistory} />
       </div>
     </>
   );
